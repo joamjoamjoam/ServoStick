@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ServoStick": {
+      "commandName": "Project",
+      "commandLineArgs": "game qbert.zip"
+    }
+  }
+}
