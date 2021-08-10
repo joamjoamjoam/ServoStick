@@ -183,7 +183,7 @@ namespace ServoStick
             {
                 Console.WriteLine($"Usage: {args[0]} set (4|8|45) 45 = diagonal. {args[0]} name \"RomName\"");
             }
-            
+            Environment.Exit(0);
         }
     }
 }
