@@ -145,10 +145,6 @@ namespace ServoStick
 
                                 foreach (JObject obj in JObject.Parse(File.ReadAllText(controlsFile))["games"].Value<JArray>().Children<JObject>())
                                 {
-                                    if (obj["romname"].Value<String>().StartsWith("pac"))
-                                    {
-
-                                    }
                                     if (obj["romname"].Value<String>() == argName)
                                     {
                                         gameObj = obj;
@@ -187,8 +183,7 @@ namespace ServoStick
             {
                 Console.WriteLine($"Usage: {args[0]} set (4|8|45) 45 = diagonal. {args[0]} name \"RomName\"");
             }
-
-            Console.ReadKey();
+            
         }
     }
 }
