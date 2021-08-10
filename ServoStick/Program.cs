@@ -6,11 +6,21 @@ using Newtonsoft.Json.Linq;
 using System.IO.Ports;
 using System.Management;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace ServoStick
 {
+
+
     class Program
     {
+        const int SW_HIDE = 0;
+        const int SW_SHOW = 5;
+        [DllImport("kernel32.dll")]
+        static extern IntPtr GetConsoleWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         public enum JoystickControlMode
         {
             J4WAY,
@@ -110,6 +120,10 @@ namespace ServoStick
 
         static void Main(string[] args)
         {
+            var handle = GetConsoleWindow();
+
+            // Hide
+            ShowWindow(handle, SW_HIDE);
             if (args.Length == 2)
             {
                 String commandName = args[0];
